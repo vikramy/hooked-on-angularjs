@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en" ng-app="demoApp">
+	<head>
+		<meta charset="utf-8">
+		<title>Step 10 - Understanding Strict Contextual Escaping</title>
+		<link rel="stylesheet" href="/css/global.css">
+		<script src="/angular/angular.min.js"></script>
+		<script src="/angular/angular-route.min.js"></script>
+		<script src="/angular/angular-touch.min.js"></script>
+		<script src="/angular/angular-animate.min.js"></script>
+		<script src="js/app.js"></script>
+		<script src="js/controllers.js"></script>
+	</head>
+	<body>
+		<div id="persistent-menu">
+			<label for="animator" class="element-invisible">Animation Style</label>
+			<select id="animator" ng-model="animate">
+				<option value="" selected>Choose am Animation Style</option>
+				<option value="fade">fade</option>
+				<option value="slide">slide</option>
+			</select>
+
+			| <a href="/step10/#/map">View Map</a> | <a href="/step10/#/phones">Back to Phones</a> | <button type="button" ng-click="locate()" ng-controller="LocateCtrl">Locate Me</button>
+		</div>
+
+		<br />
+
+		<div id="view" ng-view class="{{animate}}"></div>
+		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+	</body>
+</html>

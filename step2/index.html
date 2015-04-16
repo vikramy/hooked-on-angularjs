@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en" ng-app="demoApp">
+	<head>
+		<meta charset="utf-8">
+		<title>Step 2 - Create a Controller with a List</title>
+		<link rel="stylesheet" href="/css/global.css">
+		<script src="/angular/angular.min.js"></script>
+		<script src="js/controllers.js"></script>
+	</head>
+	<body ng-controller="PhoneListCtrl">
+		<ul>
+			<li ng-repeat="phone in phones">
+				<p><strong>{{phone.name}}</strong> - {{phone.snippet}}</p>
+			</li>
+		</ul>
+	</body>
+</html>

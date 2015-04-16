@@ -1,0 +1,17 @@
+<div class="inner">
+	<label for="searcher" class="element-invisible">Search</label>
+	<input id="searcher" ng-model="query" placeholder="Search" />
+	<label for="sorter" class="element-invisible">Sort Order</label>
+	<select id="sorter" ng-model="orderProp">
+		<option value="">Sort By</option>
+		<option value="name">Alphabetical</option>
+		<option value="age">Newest</option>
+	</select>
+	<ul class="phones">
+		<li ng-repeat="phone in phones | filter:query | orderBy:orderProp" class="thumbnail">
+			<span class="thumb"><img ng-src="/img/phones/phone-icon.png" alt="{{phone.name}}" ng-click="setImage($event, phone.imageUrl)"></span>
+			<a href="#/phones/{{phone.id}}">{{phone.name}}</a>
+			<p>{{phone.snippet}}</p>
+		</li>
+	</ul>
+</div>

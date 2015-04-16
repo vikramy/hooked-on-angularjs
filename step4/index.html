@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en" ng-app="demoApp">
+	<head>
+		<meta charset="utf-8">
+		<title>Step 4 - Filtering &amp; Sorting a List</title>
+		<link rel="stylesheet" href="/css/global.css">
+		<script src="/angular/angular.min.js"></script>
+		<script src="js/controllers.js"></script>
+	</head>
+	<body ng-controller="PhoneListCtrl">
+		<label for="searcher" class="element-invisible">Search</label>
+		<input id="searcher" ng-model="query" placeholder="Search" />
+		<label for="sorter" class="element-invisible">Sort Order</label>
+		<select id="sorter" ng-model="orderProp">
+			<option value="">Sort By</option>
+			<option value="name">Alphabetical</option>
+			<option value="age">Newest</option>
+		</select>
+		<ul class="phones">
+			<li ng-repeat="phone in phones | filter:query | orderBy:orderProp" class="thumbnail">
+				<a href="#/phones/{{phone.id}}" class="thumb"><img ng-src="{{phone.imageUrl}}"></a>
+				<a href="#/phones/{{phone.id}}">{{phone.name}}</a>
+				<p>{{phone.snippet}}</p>
+			</li>
+		</ul>
+	</body>
+</html>
